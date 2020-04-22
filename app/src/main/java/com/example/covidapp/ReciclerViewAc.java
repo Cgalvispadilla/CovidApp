@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class ReciclerViewAc extends RecyclerView .Adapter<ReciclerViewAc.ViewHolderDatos>{
 
-    ArrayList<String> casos;
+    ArrayList<CasosCovid> casos;
     protected void onCreate(Bundle savedInstanceState) {
 
     }
@@ -35,10 +35,10 @@ public class ReciclerViewAc extends RecyclerView .Adapter<ReciclerViewAc.ViewHol
 
     @Override
     public int getItemCount() {
-        return 0;
+        return casos.size();
     }
 
-    public ReciclerViewAc(ArrayList<String> casos) {
+    public ReciclerViewAc(ArrayList<CasosCovid> casos) {
         this.casos = casos;
     }
 
