@@ -25,7 +25,7 @@ public class ReciclerViewAc extends RecyclerView .Adapter<ReciclerViewAc.ViewHol
     @Override
     public ViewHolderDatos onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.layrecicler,null,false);
-        return null;
+        return new ViewHolderDatos(view);
     }
 
     @Override
