@@ -2,11 +2,13 @@ package com.example.covidapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +34,25 @@ public class MainActivity extends AppCompatActivity {
         etUsuario = (EditText) findViewById(R.id.etUser);
         btnLogin = (Button) findViewById(R.id.btLogin);
         pbLogin = (ProgressBar) findViewById(R.id.pbLogin);
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (isAutenticado()) {
+                    try {
+                        pbLogin.setVisibility(View.VISIBLE);
+                        Thread.sleep(3000);
+                        Intent intent = new Intent(MainActivity.this, MenuDrawer.class);
+                        startActivity(intent);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(), "Usuario o contraseña incorrecto", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     @Override
